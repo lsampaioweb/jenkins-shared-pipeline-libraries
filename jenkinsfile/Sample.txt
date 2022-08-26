@@ -1,0 +1,42 @@
+@Library('pipeline-Shared-Libraries') _
+
+pipeline {
+    agent any
+    environment {
+        PROJECT_TYPE = "maven"
+        MAIL_TO = "lsampaioweb@gmail.com"
+    }
+    tools {
+    	maven "Maven3"
+  	}
+    stages {
+        stage("Initialize") {
+            steps {
+                initializeDefaultConfiguration()
+            }
+        }
+        stage("Build") {
+            steps {
+                buildPlugin()
+            }
+        }
+        stage("Test") {
+            steps {
+                test()
+            }
+        }
+        stage("Quality Check") {
+            steps {
+                qualityCheck()
+            }
+        }
+    }
+    post {
+        failure {
+            sendNotification()
+        }
+        always {
+            cleanWs()
+        }
+    }
+}
