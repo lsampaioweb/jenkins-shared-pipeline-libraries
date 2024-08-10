@@ -10,7 +10,7 @@ A resources directory allows the libraryResource step to be used from an externa
 
 These libraries are considered "trusted:" they can run any methods in Java, Groovy, Jenkins internal APIs, Jenkins plugins, or third-party libraries. This allows you to define libraries which encapsulate individually unsafe APIs in a higher-level wrapper safe for use from any Pipeline. Beware that anyone able to push commits to this SCM repository could obtain unlimited access to Jenkins.
 
-IMPORTANT: The "_" at the end of the line is necessary. 
+IMPORTANT: The "_" at the end of the line is necessary.
 
 ``` bash
 @Library('my-shared-library') _
@@ -22,10 +22,10 @@ IMPORTANT: The "_" at the end of the line is necessary.
 @Library(['my-shared-library', 'otherlib@abc1234']) _
 ```
 
-# License:
+### License:
 
 [MIT](LICENSE "MIT License")
 
-# Created by: 
+### Created by:
 
 1. Luciano Sampaio.
